@@ -21,94 +21,71 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    var t_stat:Int = 4
-    var t_statd:Double = 4
+
+    var anfangstemp:Double = 4
     var kochzeit:Double = 6
-    var höhe:Int = 300
-    var höhed:Double = 300
-    var gewicht:Int = 50
-    var gewichtd:Double = 50
-    var kons:Int = 65
-    var konsd:Double = 65
+    var höhe:Double = 300
+    var gewicht:Double = 50
+    var konsistenz:Double = 65
+    var luftdruck:Double = 0
+    var siedetemp:Double = 0
     
-    var druckd:Double = 0
-    var t_siedd:Double = 0
+    func updateKochzeitLabel() {
+        luftdruck = (1013.25*exp(-höhe/8000))
+        siedetemp = (234.175*log(luftdruck/6.1078)/(17.08085 - log(luftdruck/6.1078)))
+        kochzeit = (round((0.465*(pow(gewicht,(2/3)))*log(0.76*(siedetemp-anfangstemp)/(siedetemp - konsistenz)))*10))/10
+        kochzeittext.text = "\(kochzeit) Minuten"
+    }
     
     
     @IBOutlet var höhetext: UILabel!
-    
     @IBOutlet var höheslider: UISlider!
-
     @IBAction func höhechange(sender: AnyObject) {
-        höhe = Int(höheslider.value)
-        höhed = Double(höhe)
-        höhetext.text = "\(höhe)"
+        höhe = Double(höheslider.value)
+        höhetext.text = "\(Int(höhe))"
         
-        druckd = (1013.25*exp(-höhed/8000))
-        t_siedd = (234.175*log(druckd/6.1078)/(17.08085 - log(druckd/6.1078)))
-        kochzeit = (round((0.465*(pow(gewichtd,(2/3)))*log(0.76*(t_siedd-t_statd)/(t_siedd - konsd)))*10))/10
-        kochzeittext.text = "\(kochzeit) Minuten"
+        updateKochzeitLabel()
     }
     
     
     @IBOutlet var gewichttext: UILabel!
-    
     @IBOutlet var gewichtslider: UISlider!
-    
     @IBAction func gewichtchange(sender: AnyObject) {
-        gewicht = Int(gewichtslider.value)
-        gewichtd = Double(gewicht)
-        gewichttext.text = "\(gewicht)"
+        gewicht = Double(gewichtslider.value)
+        gewichttext.text = "\(Int(gewicht))"
         
-        druckd = (1013.25*exp(-höhed/8000))
-        t_siedd = (234.175*log(druckd/6.1078)/(17.08085 - log(druckd/6.1078)))
-        kochzeit = (round((0.465*(pow(gewichtd,(2/3)))*log(0.76*(t_siedd-t_statd)/(t_siedd - konsd)))*10))/10
-        kochzeittext.text = "\(kochzeit) Minuten"
+        updateKochzeitLabel()
     }
     
+    
     @IBOutlet var konstext: UILabel!
-    
     @IBOutlet var gradtext: UILabel!
-    
     @IBOutlet var konsslider: UISlider!
-    
     @IBAction func konschange(sender: AnyObject) {
-        kons = Int(konsslider.value)
-        konsd = Double(kons)
-        gradtext.text = "(\(kons)°C)"
-        if kons < 62 {
+        konsistenz = Double(konsslider.value)
+        gradtext.text = "(\(Int(konsistenz))°C)"
+        if konsistenz < 62 {
             konstext.text = "flüssig"
-        } else if kons < 75 {
+        } else if konsistenz < 75 {
             konstext.text = "weich"
         } else {
             konstext.text = "hart"
         }
         
-        druckd = (1013.25*exp(-höhed/8000))
-        t_siedd = (234.175*log(druckd/6.1078)/(17.08085 - log(druckd/6.1078)))
-        kochzeit = (round((0.465*(pow(gewichtd,(2/3)))*log(0.76*(t_siedd-t_statd)/(t_siedd - konsd)))*10))/10
-        kochzeittext.text = "\(kochzeit) Minuten"
-    
+        updateKochzeitLabel()
     }
    
-    @IBOutlet var switchstate: UISwitch!
     
+    @IBOutlet var switchstate: UISwitch!
     @IBAction func kühlchange(sender: AnyObject) {
         if switchstate.on {
-            t_stat = 4
-            t_statd = Double(t_stat)
+            anfangstemp = 4
         } else {
-            t_stat = 20
-            t_statd = Double(t_stat)
+            anfangstemp = 20
         }
         
-        druckd = (1013.25*exp(-höhed/8000))
-        t_siedd = (234.175*log(druckd/6.1078)/(17.08085 - log(druckd/6.1078)))
-        kochzeit = (round((0.465*(pow(gewichtd,(2/3)))*log(0.76*(t_siedd-t_statd)/(t_siedd - konsd)))*10))/10
-        kochzeittext.text = "\(kochzeit) Minuten"
-        
+        updateKochzeitLabel()
     }
-    
     
     
     @IBOutlet var kochzeittext: UILabel!

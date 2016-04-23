@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7999F7041CCAA2EF00431B28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7999F7031CCAA2EF00431B28 /* Images.xcassets */; };
 		8750F1381CC241C50097E166 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8750F1341CC241C50097E166 /* Launch Screen.storyboard */; };
 		8750F1391CC241C50097E166 /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8750F1351CC241C50097E166 /* main.storyboard */; };
 		8750F13A1CC241C50097E166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8750F1361CC241C50097E166 /* AppDelegate.swift */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7999F7031CCAA2EF00431B28 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SimpleUI/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		873D8B651AAA4BF60058BC00 /* SimpleUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8750F1331CC241B90097E166 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = simpleui/Info.plist; sourceTree = SOURCE_ROOT; };
 		8750F1341CC241C50097E166 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "simpleui/Launch Screen.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -55,6 +57,7 @@
 				8750F1361CC241C50097E166 /* AppDelegate.swift */,
 				8750F1371CC241C50097E166 /* ViewController.swift */,
 				8750F1351CC241C50097E166 /* main.storyboard */,
+				7999F7031CCAA2EF00431B28 /* Images.xcassets */,
 				873D8B681AAA4BF60058BC00 /* Supporting Files */,
 			);
 			name = SimpleUI;
@@ -129,6 +132,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7999F7041CCAA2EF00431B28 /* Images.xcassets in Resources */,
 				8750F1381CC241C50097E166 /* Launch Screen.storyboard in Resources */,
 				8750F1391CC241C50097E166 /* main.storyboard in Resources */,
 			);
@@ -229,6 +233,8 @@
 		873D8B851AAA4BF60058BC00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -244,6 +250,8 @@
 		873D8B861AAA4BF60058BC00 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
